@@ -23,9 +23,9 @@ def home():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        name = request.form[name]
-        email = request.form[email]
-        password = generate_password_hash(request.form[password])
+        name = request.form['name']
+        email = request.form['email']
+        password = generate_password_hash(request.form['password'])
         if users_db.find_one({'email':email}):
             flash("E-mail já cadastrado :/", 'danger')
         
@@ -36,7 +36,7 @@ def register():
                 'password': password
             })
             flash('Cadastro realizado com sucesso!', 'success')
-            return redirect(url_for('login'))
+            return redirect(url_for('home'))
         
     return render_template('register.html')
 
@@ -44,10 +44,20 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    pass
+    if request.method == 'POST':
+        email = request.form['email']
+        senha = request.form['password']
 
+        user = users_db.find_one({
+            'email': email
+            })
+            
+        if user and check_password_hash(user['password'], senha):
+            flash('Login successful.', 'success')
+        else:
+            flash('Invalid username or password. Please try again.', 'danger')
 
-
+    return render_template('login.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
