@@ -17,6 +17,8 @@ users_db = db['users']
 
 @app.route('/')
 def home():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
     return render_template('index.html')
 
 
@@ -54,10 +56,21 @@ def login():
             
         if user and check_password_hash(user['password'], senha):
             flash('Login successful.', 'success')
+            session['user_id'] = str(user['_id'])
+            return redirect(url_for('home'))
         else:
             flash('Invalid username or password. Please try again.', 'danger')
 
     return render_template('login.html')
+
+
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)
+    flash('Você saiu da sua conta.')  
+    return redirect(url_for('login'))
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
