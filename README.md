@@ -1,7 +1,4 @@
-GPT-4.1
 
-Aqui está um modelo de README inicial para o seu projeto de bolão, considerando a fase atual (estruturação do backend, definição de modelos, rotas principais e integração inicial):
-Bolão Web App
 
 Sistema web para criação e participação em bolões de eventos esportivos, culturais ou personalizados. O objetivo é permitir que usuários criem bolões, compartilhem links de participação e registrem palpites de forma simples e segura.
 🚀 Status do Projeto
