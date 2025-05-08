@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de Login</title>
+</head>
+<body>
+  {% if session.get('user_name') %}
+    <p>Bem-vindo, {{ session['user_name'] }}!</p>
+    <a href="{{ url_for('logout') }}">
+      <button type="button">Fazer logout</button>
+    </a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  {% else %}
+    <a href="{{ url_for('login') }}">
+      <button type="button">Login</button>
+    </a>
+  {% endif %}
+  <a href="{{ url_for('criar_bolao') }}">
+    <button type="button">Criar Bolao</button>
+  </a>
+  <div class='content-div'>
+    <h2>Meus Bolões</h2>
+
+  </div>
+
+</body>
+</html>

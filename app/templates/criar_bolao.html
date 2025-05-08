@@ -1,0 +1,11 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<form method="post" action="{{ url_for('adicionar_rodada', bolao_id=bolao['_id']) }}">
+    <label for="nome_rodada">Nome da Rodada:</label>
+    <input type="text" name="nome_rodada" required>
+    <button type="submit">Adicionar Rodada</button>
+  </form>
+
+{%endblock%}
