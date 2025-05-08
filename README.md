@@ -1,4 +1,4 @@
-
+# Bolão Web App
 
 Sistema web para criação e participação em bolões de eventos esportivos, culturais ou personalizados. O objetivo é permitir que usuários criem bolões, compartilhem links de participação e registrem palpites de forma simples e segura.
 🚀 Status do Projeto
